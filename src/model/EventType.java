@@ -1,0 +1,6 @@
+package model;
+
+public enum EventType	{
+	MAINTENANCE, , SCHOOL VISITS , IMPROVEMENT ACTIVITIES, CELEBRATIONS
+
+}
