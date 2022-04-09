@@ -58,9 +58,6 @@ public class Species{
 		
 		this.envirometType = enviroType;
 		
-		this.counterFlora = counterFlora;
-		
-		this.counterFauna = counterFauna;
 		
 	}
 	

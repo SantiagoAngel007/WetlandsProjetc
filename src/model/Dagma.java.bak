@@ -418,7 +418,7 @@ public class Dagma{
 	}
 	
 	
-	public String searchSpecie(String specieName){
+	public void searchSpecie(String specieName){
 		
 		
 		String msg = "";
@@ -442,6 +442,142 @@ public class Dagma{
 
 
 //|-------------------------------------------------------------------------------------------------------------------------|
+
+
+	public void countSpeciesFaunaInWetland(){
+		
+		int counter=0;
+		
+		for (int i = 0; i<MAX_WETLANDS; i++){
+			
+			if (wetlandArray[i]!= null){
+				for(int j = 0; j<MAX_SPECIES; j++){
+					if(speciesArray[j].getSpecieType().equals("Fauna")){
+					
+						counter++;
+					}
+				}
+			}
+		}
+		System.out.println(counter);
+	}
+	
+	
+	
+	public void countSpeciesFloraInWetland(){
+		
+		int counter=0;
+		
+		for (int i = 0; i<MAX_WETLANDS; i++){
+			if (wetlandArray[i]!= null){
+				for(int j = 0; j<MAX_SPECIES; j++){
+					if(speciesArray[j].getSpecieType().equals("Flora")){
+					
+						counter++;
+					}
+				}
+			}
+		}
+		System.out.println(counter);
+	}
+	
+	
+	
+//|-------------------------------------------------------------------------------------------------------------------------|	
+	
+	
+	public void getWhatIwant(String specieName){
+		
+		System.out.println(findSpecie(specieName).getSpecieType());
+		
+	}
+//|-------------------------------------------------------------------------------------------------------------------------|
+
+
+	public void minimumFloraWetland(){
+		
+		int position = 0;
+		int counterFlora=0;
+		int counterMin=0;
+		Wetland temporal = wetlandArray[0];
+		
+		for (int i = 0; i<MAX_WETLANDS; i++){
+			if (wetlandArray[i]!= null){
+				for(int j = 0; j<MAX_SPECIES; j++){
+					if(speciesArray[j].getSpecieType().equals("Flora")){
+					
+						counterFlora++;
+					
+					}
+					if(counterMin<counterFlora){
+						counterMin = counterFlora;
+						temporal = wetlandArray[i];
+					}
+				}
+			}
+		}
+	}
+
+	
+
+	public void maximumFaunaWetland(){
+		int position = 0;
+		int counterFauna=0;
+		int counterMax=0;
+		Wetland temporal = wetlandArray[0];
+		
+		for (int i = 0; i<MAX_WETLANDS; i++){
+			if (wetlandArray[i]!= null){
+				for(int j = 0; j<MAX_SPECIES; j++){
+					if(speciesArray[j].getSpecieType().equals("Fauna")){
+					
+						counterFauna++;
+					
+					}
+					if(counterMax>counterFauna){
+						counterMax = counterFauna;
+						temporal = wetlandArray[i];
+					}
+				}
+			}
+		}	
+	}
+
+
+
+//|-------------------------------------------------------------------------------------------------------------------------|
+
+
+	public String addSpecieToString(){
+			
+			String msg = "";
+			for (int i = 0; i<MAX_WETLANDS; i++){
+				if (wetlandArray[i]!= null){
+					for(int j = 0; j<MAX_SPECIES; j++){
+						if (speciesArray[i]!=null){
+							msg += species[i].toString() + "\n";
+						}
+				
+					}
+				}
+			}
+			return msg;
+	}
+	
+	
+	
+
+
+//|-------------------------------------------------------------------------------------------------------------------------|
+
+
+
+
+
+
+
+
+
 
 
 	public Wetland[] getWetlandArray(){

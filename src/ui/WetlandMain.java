@@ -43,7 +43,9 @@ public class WetlandMain{
 				"(3) To create an event  \n"+
 				"(4) To save an specie in a wetland  \n"+
 				"(5) To search a specie in wetlands  \n"+
-				"(6) To show information\n" +  
+				"(6) To show the wetland with the highest amount of fauna \n and the wetland with the lowest amount of flora\n"+
+				"(7) To show information of wetlands\n" +  
+				"(8) To show information\n" + 
 				"(0) To quit"
 				);
 		option= sc.nextInt();
@@ -74,13 +76,30 @@ public class WetlandMain{
 		case 5:
 			searchSpecieByWetland();
 			break;
-
 		case 6:
+			administrator.maximumFaunaWetland();
+			administrator.minimumFloraWetland();
+			break;
+		case 7:
+			System.out.println("La informacion de la tienda es la siguiente:");
+			System.out.println(administrator.toString());
+			administrator.findWetlandObjetct();
+			System.out.println("The amount of species of fauna are");
+			administrator.countSpeciesFaunaInWetland();
+			System.out.println("The amount of species of flora are");
+			administrator.countSpeciesFloraInWetland();
+			break;
+
+		case 8:
 			System.out.println("La informacion de la tienda es la siguiente:");
 			System.out.println(administrator.toString());
 			administrator.findWetlandObjetct();
 			administrator.findSpecieObjetct();
 			administrator.findEventObjetct();
+			System.out.println("The amount of species of fauna are");
+			administrator.countSpeciesFaunaInWetland();
+			System.out.println("The amount of species of flora are");
+			administrator.countSpeciesFloraInWetland();
 			
 			break;
 		
@@ -258,6 +277,17 @@ public class WetlandMain{
 	}
 	
 	
+	public void getWhatIWant2(){
+		
+		String nameOfSpecie;
+		System.out.println("Insert the name of the specie");
+		nameOfSpecie= sc.nextLine();
+		
+		administrator.getWhatIwant(nameOfSpecie);
+		
+	
+	}
+	
 	public void searchSpecieByWetland(){
 		
 		String speName;
@@ -266,6 +296,7 @@ public class WetlandMain{
 		
 		administrator.searchSpecie(speName);
 	}
+	
 	
 	
 	

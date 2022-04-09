@@ -34,9 +34,10 @@ public class Species{
 	*/
 	private String envirometType;
 	
-	private int counterFlora;
+
+	//private int counterFlora;
 	
-	private int counterFauna;
+	//private int counterFauna;
 	
 	
 	//Constructora

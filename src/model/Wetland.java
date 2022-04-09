@@ -59,9 +59,9 @@ public class Wetland{
 	*/
 	
 	
-	private int counterFlora;
+	//private int counterFlora;
 	
-	private int counterFauna;
+	//private int counterFauna;
 	
 	
 	private Species[] species;
@@ -156,19 +156,60 @@ public class Wetland{
 	}
 	
 	
-	/*
-	public void addAuthorGenre(String id, Genre gen){
+	
+	
+	public int countSpeciesFlora(){
 		
-		boolean is found = false;
-		for(int i=0; i > MAX_AUTHOR && !isFound; i++){
-			
-			if(authors[i] != null && authors[i].getId().equals(idAuthor)){
-				siFound = true;
-				authors[i].addGenre(gen);
+		int counterFlora = 0;
+		
+		for(int i = 0; i<MAX_SPECIES; i++){
+			if(species[i].getSpecieType().equals("Flora")){
+				
+				counterFlora++;
+				
 			}
+			
 		}
+		
+		return counterFlora;
 	}
-	*/
+	
+	
+	
+	public int countSpeciesFauna(){
+		
+		int counterFauna = 0;
+		
+		for(int i = 0; i<MAX_SPECIES; i++){
+			if(species[i].getSpecieType().equals("Fauna")){
+				
+				counterFauna++;
+				
+			}
+			
+		}
+		
+		return counterFauna;
+	}
+	
+	
+	public String addSpecieToString(){
+		
+		String msg = "";
+		for (int i = 0; i<MAX_SPECIES; i++){
+			
+			if (species[i]!=null){
+				msg += species[i].toString() + "\n";
+			}
+			
+			
+		}
+		return msg;
+	}
+	
+	
+	
+	
 	
 	
 	//Gets modificados a int
@@ -242,9 +283,10 @@ public class Wetland{
 		"The state type: " + stateType + "\n" +
 		"Size of wetland: " + size + "\n" +
 		"UrlPhoto: " + urlPhoto + "\n" +
-		"Is protected: " + isProtected + "\n" +
-		"Location name " + locationName + "\n" +	
-		"Location name " + locationName + "\n" ;
+		"Is protected: " + isProtected + "\n" +	
+		"Location name " + locationName + "\n" +
+		"Species in wetland " + addSpecieToString();
 	}
 	
 }
+
