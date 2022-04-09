@@ -79,15 +79,17 @@ public class WetlandMain{
 		case 6:
 			administrator.maximumFaunaWetland();
 			administrator.minimumFloraWetland();
+			System.out.println("");
 			break;
 		case 7:
-			System.out.println("La informacion de la tienda es la siguiente:");
+			System.out.println("The information of the wetlands is:");
 			System.out.println(administrator.toString());
 			administrator.findWetlandObjetct();
 			System.out.println("The amount of species of fauna are");
 			administrator.countSpeciesFaunaInWetland();
 			System.out.println("The amount of species of flora are");
 			administrator.countSpeciesFloraInWetland();
+			break;
 
 		case 8:
 			System.out.println("La informacion de la tienda es la siguiente:");
@@ -223,7 +225,7 @@ public class WetlandMain{
 			String wetlandName;
 			
 			
-		System.out.println("Please insert the event type 1 o 0");
+		System.out.println("Please insert the event type MAINTENANCE, (SCHOOL VISITS , IMPROVEMENT ACTIVITIES, CELEBRATIONS)					");
 		eveType= sc.nextLine();
 		//sc.nextLine();
 		

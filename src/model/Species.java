@@ -35,9 +35,9 @@ public class Species{
 	private String envirometType;
 	
 
-	//private int counterFlora;
+	private int counterFlora;
 	
-	//private int counterFauna;
+	private int counterFauna;
 	
 	
 	//Constructora
@@ -114,6 +114,7 @@ public class Species{
 		envirometType = enviroType;
 	}
 	
+	
 	public void setCounterFlora(int counterFlora){
 		this.counterFlora = counterFlora;
 	}
@@ -123,12 +124,7 @@ public class Species{
 	}
 	
 	
-	/*
-	public String toString(){
-		
-		return speciesType + "/" + name + "/" + scientificName + "/" + isMigratory + "/" + envirometType;
-	}
-	*/
+	
 	
 	
 	public String toString() {

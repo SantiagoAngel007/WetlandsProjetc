@@ -48,6 +48,11 @@ public class Dagma{
 	
 //|-------------------------------------------------------------------------------------------------------------------------|
 
+
+	/**
+	*@return a boolean true if there is space in a posiiton the array of wetlands.
+	* find the position in the array that has space.
+	* */
 	public boolean hasSpace(){
 
 		boolean emptyPosition= false;
@@ -61,7 +66,10 @@ public class Dagma{
 		return emptyPosition;
 	}
 	
-	
+	/**
+	*@return a boolean true if there is space in a posiiton the array of events.
+	* find the position in the array that has space.
+	* */
 	public boolean hasSpaceSpecie(){
 
 		boolean emptyPosition= false;
@@ -75,7 +83,10 @@ public class Dagma{
 		return emptyPosition;
 	}
 	
-	
+	/**
+	*@return a boolean true if there is space in a posiiton the array of species.
+	* find the position in the array that has space.
+	* */
 	public boolean hasSpaceEvent(){
 
 		boolean emptyPosition= false;
@@ -93,7 +104,7 @@ public class Dagma{
 //|-------------------------------------------------------------------------------------------------------------------------|	
 	
 	/**
-	*@return the position of the array that have space.
+	*@return the first position of the array wetlands that have space.
 	* find the position in the array that has space.
 	* */
 	public int firstNullSpace(){
@@ -113,7 +124,7 @@ public class Dagma{
 	
 	
 	/**
-	*@return the position of the array that have space.
+	*@return the first position of the array species that have space.
 	* find the position in the array that has space.
 	* */
 	public int firstNullSpaceSpecie(){
@@ -133,7 +144,7 @@ public class Dagma{
 	
 	
 	/**
-	*@return the position of the array that have space.
+	*@return the first position of the array event that have space.
 	* find the position in the array that has space.
 	* */
 	public int firstNullSpaceEvent(){
@@ -157,8 +168,7 @@ public class Dagma{
 
 	
 	/**
-	*@return the position of the array that have space.
-	* find the position in the array that has space.
+	*Description: find and print all the objects of the wetland array.
 	* */
 	public void findWetlandObjetct(){
 		
@@ -175,8 +185,7 @@ public class Dagma{
 	
 	
 	/**
-	*@return the position of the array that have space.
-	* find the position in the array that has space.
+	*Description: find and print all the objects of the species array.
 	* */
 	public void findSpecieObjetct(){
 		
@@ -193,8 +202,7 @@ public class Dagma{
 	
 	
 	/**
-	*@return the position of the array that have space.
-	* find the position in the array that has space.
+	*Description: find and print all the objects of the wetland array.
 	* */
 	public void findEventObjetct(){
 		
@@ -212,8 +220,7 @@ public class Dagma{
 	
 	
 	/**
-	*@return the position of the array that have space.
-	* find the position in the array that has space.
+	*@return the object wetland of the array that is the same as the parameter.
 	* */
 	public Wetland findWetland(String name){
 		
@@ -233,7 +240,9 @@ public class Dagma{
 	}
 	
 	
-	
+	/**
+	*@return the object species of the array that is the same as the parameter.
+	* */
 	public Species findSpecie(String name){
 		
 		Species speciesFound = null;
@@ -252,7 +261,10 @@ public class Dagma{
 	}
 	
 	
+	/**
+	*@return the object event of the array that is the same as the parameter.
 	
+	* */
 	public Event findEvent(String ownerName){
 		
 		Event eventFound = null;
@@ -293,7 +305,9 @@ public class Dagma{
 	
 //|-------------------------------------------------------------------------------------------------------------------------|	
 	
-
+	/**
+	*Description: Used to create an object of type wetland.
+	* */
 	public void addWetland (String n, int locaType, int staType, double siz, String urPhoto, int isProtec, String locaName){
 		
 		String out = "";
@@ -340,7 +354,9 @@ public class Dagma{
 	}
 
 
-	
+	/**
+	*Description: Used to create an object of type specie.
+	* */
 	public void addSpecie (int speType, String n, String scienName, int isMigra, String enviroType){
 		
 		String out = "";
@@ -380,7 +396,9 @@ public class Dagma{
 	}
 	
 	
-	
+		/**
+	*Description: Used to create an object of type event and is also used to add this event to a wetland..
+	* */
 	public void addEvent (String eveType, int dat, String eveOrg, double cot, String descrip, String wetlandName){
 		
 		String out = "";
@@ -417,7 +435,9 @@ public class Dagma{
 		
 	}
 	
+
 	
+//|-------------------------------------------------------------------------------------------------------------------------|	
 	public void searchSpecie(String specieName){
 		
 		
@@ -425,10 +445,11 @@ public class Dagma{
 		for (int i = 0; i<MAX_WETLANDS; i++){
 			
 			if (wetlandArray[i]!=null){
-				if(specieName.equals(speciesArray[i].getName())){
-					msg += wetlandArray[i].toString() + "\n";
-					System.out.println(msg);
-					
+				for (int j = 0; j<MAX_SPECIES; j++){
+					if(specieName.equals(speciesArray[j].getName())){
+						msg += wetlandArray[i].toString() + "\n";
+						System.out.println(msg);
+					}
 				}
 				
 			}
@@ -446,44 +467,54 @@ public class Dagma{
 
 	public void countSpeciesFaunaInWetland(){
 		
-		int counter=0;
+		int counterFA=0;
 		
 		for (int i = 0; i<MAX_WETLANDS; i++){
 			
 			if (wetlandArray[i]!= null){
 				for(int j = 0; j<MAX_SPECIES; j++){
-					if(speciesArray[j].getSpecieType().equals("Fauna")){
+					if (speciesArray[j]!= null){
+						if(speciesArray[j].getSpecieType().equals("Fauna")){
 					
-						counter++;
+							counterFA++;
+						}
 					}
 				}
 			}
 		}
-		System.out.println(counter);
+		System.out.println(counterFA);
 	}
 	
 	
 	
 	public void countSpeciesFloraInWetland(){
 		
-		int counter=0;
+		int counterFL=0;
 		
 		for (int i = 0; i<MAX_WETLANDS; i++){
 			if (wetlandArray[i]!= null){
 				for(int j = 0; j<MAX_SPECIES; j++){
-					if(speciesArray[j].getSpecieType().equals("Flora")){
+					if (speciesArray[j]!= null){
+						if(speciesArray[j].getSpecieType().equals("Flora")){
 					
-						counter++;
+							counterFL++;
+						}
 					}
 				}
 			}
 		}
-		System.out.println(counter);
+		System.out.println(counterFL);
 	}
 	
 	
 	
 //|-------------------------------------------------------------------------------------------------------------------------|	
+
+	
+
+
+
+//|-------------------------------------------------------------------------------------------------------------------------|
 	
 	
 	public void getWhatIwant(String specieName){
@@ -504,7 +535,8 @@ public class Dagma{
 		for (int i = 0; i<MAX_WETLANDS; i++){
 			if (wetlandArray[i]!= null){
 				for(int j = 0; j<MAX_SPECIES; j++){
-					if(speciesArray[j].getSpecieType().equals("Flora")){
+					if (speciesArray[j]!= null){
+						if(speciesArray[j].getSpecieType().equals("Flora")){
 					
 						counterFlora++;
 					
@@ -512,10 +544,12 @@ public class Dagma{
 					if(counterMin<counterFlora){
 						counterMin = counterFlora;
 						temporal = wetlandArray[i];
+						}
 					}
 				}
 			}
 		}
+		System.out.println("The minimun of flora is\n " +temporal);
 	}
 
 	
@@ -529,18 +563,21 @@ public class Dagma{
 		for (int i = 0; i<MAX_WETLANDS; i++){
 			if (wetlandArray[i]!= null){
 				for(int j = 0; j<MAX_SPECIES; j++){
-					if(speciesArray[j].getSpecieType().equals("Fauna")){
+					if (speciesArray[j]!= null){
+						if(speciesArray[j].getSpecieType().equals("Fauna")){
 					
-						counterFauna++;
+							counterFauna++;
 					
 					}
 					if(counterMax>counterFauna){
 						counterMax = counterFauna;
 						temporal = wetlandArray[i];
+						}
 					}
 				}
 			}
-		}	
+		}
+		System.out.println("The maximum of fauna is\n " +temporal);
 	}
 
 

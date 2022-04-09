@@ -59,9 +59,9 @@ public class Wetland{
 	*/
 	
 	
-	//private int counterFlora;
+	private int counterFlora;
 	
-	//private int counterFauna;
+	private int counterFauna;
 	
 	
 	private Species[] species;
@@ -72,7 +72,7 @@ public class Wetland{
 	
 	
 	//Costructora
-	//, Species spe, Event eve
+	
 	
 	/**
 	* Descriptión: create new objects of type Wetland.<br>
@@ -103,7 +103,7 @@ public class Wetland{
 		
 		//species[0] =  spe;
 		
-		//events = new Event[MAX_EVENTS];
+		events = new Event[MAX_EVENTS];
 		
 		//events[0] =  eve;
 		
@@ -129,10 +129,12 @@ public class Wetland{
 	
 	public int firstNullEvents(){
 		
+		boolean emptyposition1 = false;
 		int index = -1;
-		for (int i=0; i<MAX_EVENTS && index==-1; i++){
+		for (int i=0; i<MAX_EVENTS && !emptyposition1; i++){
 			
 			if (events[i] == null){
+				emptyposition1 = true;
 				index = i;
 				
 			}
@@ -285,7 +287,7 @@ public class Wetland{
 		"UrlPhoto: " + urlPhoto + "\n" +
 		"Is protected: " + isProtected + "\n" +	
 		"Location name " + locationName + "\n" +
-		"Species in wetland " + addSpecieToString();
+		"Species in wetland\n " + addSpecieToString();
 	}
 	
 }
